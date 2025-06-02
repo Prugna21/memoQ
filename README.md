@@ -2,10 +2,10 @@
 
 ![memoQ Logo](https://upload.wikimedia.org/wikipedia/commons/3/3b/MemoQ_logo.svg)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/your-username/your-repo-name?style=flat-square)
-![GitHub contributors](https://img.shields.io/github/contributors/your-username/your-repo-name?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/your-username/your-repo-name?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/your-username/your-repo-name?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/Prugna21/memoQ?style=flat-square)
+![GitHub contributors](https://img.shields.io/github/contributors/Prugna21/memoQ?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/Prugna21/memoQ?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/Prugna21/memoQ?style=flat-square)
 
 ---
 
