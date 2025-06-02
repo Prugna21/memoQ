@@ -59,7 +59,7 @@ memoQ is a powerful CAT tool designed to streamline translation and localization
 
 - Automate repetitive tasks like project creation or batch QA using scripts in this repo.  
 - Use memoQ’s API for advanced automation scenarios.  
-- Refer to the `/scripts` folder for ready-to-use examples.
+- Refer to the `scripts` file for ready-to-use examples.
 
 ---
 
