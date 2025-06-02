@@ -97,7 +97,7 @@ memoQ is a powerful CAT tool designed to streamline translation and localization
 
 ## Troubleshooting
 
-- Common errors and fixes are documented in `/docs/troubleshooting.md`.  
+- Common errors and fixes are documented in `/docs.troubleshooting.md`.  
 - Regex patterns not working? Double-check escape characters and test them outside memoQ first.  
 - Need help? Visit the [memoQ forum](https://community.memoq.com/) or open an issue here.
 
