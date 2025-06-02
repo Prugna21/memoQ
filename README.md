@@ -59,13 +59,13 @@ memoQ is a powerful CAT tool designed to streamline translation and localization
 
 - Automate repetitive tasks like project creation or batch QA using scripts in this repo.  
 - Use memoQ’s API for advanced automation scenarios.  
-- Refer to the `scripts` file for ready-to-use examples.
+- Refer to the `scripts.md` file for ready-to-use examples.
 
 ---
 
 ## Regex and Search Tips
 
-- memoQ uses Perl-compatible regex; test your patterns carefully.  
+- memoQ uses Perl-compatible regex (PCRE); test your patterns carefully.  
 - Use regex to find formatting errors, placeholders, or specific tags.  
 - Sample regex patterns are provided in `Regex`.
 
@@ -98,7 +98,7 @@ memoQ is a powerful CAT tool designed to streamline translation and localization
 ## Troubleshooting
 
 - Common errors and fixes are documented in `docs.troubleshooting.md`.  
-- Regex patterns not working? Double-check escape characters and test them outside memoQ first.  
+- Regex patterns not working? Double-check escape characters and test them outside memoQ first (for example [regexr](https://regexr.com/)).  
 - Need help? Visit the [memoQ forum](https://community.memoq.com/) or open an issue here.
 
 ---
