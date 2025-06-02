@@ -67,7 +67,7 @@ memoQ is a powerful CAT tool designed to streamline translation and localization
 
 - memoQ uses Perl-compatible regex; test your patterns carefully.  
 - Use regex to find formatting errors, placeholders, or specific tags.  
-- Sample regex patterns are provided in `/regex_patterns.json`.
+- Sample regex patterns are provided in `Regex`.
 
 ---
 
@@ -97,7 +97,7 @@ memoQ is a powerful CAT tool designed to streamline translation and localization
 
 ## Troubleshooting
 
-- Common errors and fixes are documented in `/docs.troubleshooting.md`.  
+- Common errors and fixes are documented in `docs.troubleshooting.md`.  
 - Regex patterns not working? Double-check escape characters and test them outside memoQ first.  
 - Need help? Visit the [memoQ forum](https://community.memoq.com/) or open an issue here.
 
