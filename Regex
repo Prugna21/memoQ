@@ -1,36 +1,50 @@
-# "]] 
-((")(\s)?((\d)+)?((,(\s)?\d+)?)+)([\]]{2})
-# (/page/...)
-\(\/page\/((\w)|-)+(\d)+\)*|(\/page\/)((\w)|-)+(\d)+\)*
-# (/product/...)
+# Match "]]" pattern with optional numbers and separators
+\(\(")(\s)?(\d+)?((,(\s)?\d+)?)+(\]\]{2})
+
+# Match (/page/...) URLs
+\(\/page\/([\w-]+)(\d+)?\)*|\/page\/([\w-]+)(\d+)?\)*
+
+# Match (/s.../product/...) URLs
 \(\/s\d+\/product\/[^\s)]+\)
-# /product...)
-(\/product\/)((\w)|-)+(\d)+(.)*\)
-# /s..../product/.../) 2.0
-(\(\/s[0-9]*\/product\/)((\w)|-)+(\d)+(.)*\)
-# (/producttype/...)
-(\/s\d+\/producttype\/)((\w)|-)+(\d)+(.)*\)
-# (/s../product/...)
-(\/s\d+\/product\/)((\w)|-)+(\d)+(.)*\)
-# :1234"
+
+# Match /product/... ending with parentheses
+\/product\/[\w-]+(\d+).*\)
+
+# Match (/s.../product/.../) version 2.0
+\(\/s\d+\/product\/[\w-]+(\d+).*\)
+
+# Match (/producttype/...) URLs
+\/s\d+\/producttype\/[\w-]+(\d+).*\)
+
+# Match (/s.../product/...) URLs
+\/s\d+\/product\/[\w-]+(\d+).*\)
+
+# Match numbers enclosed in quotes, e.g., :1234"
 (\s*)(\d*)(\s*)(")
-# **\
-((\*\*)(\s)*(\\))
-# ....]]
-((\s)?((\d)+)?(((,|\|)(\s)?\d+)?)+)([\]]{2})
-# [[...:
-([\[]{2})([^:]+)(:)
-# ...1234]]
-((\s)?((\d)+)?(((,|\|)(\s)?\d+)?)+)([\]]{2})
-# [[image..."...
-([\[]{2})([^:]+)(:)(\s)*(\d)*(\s)*(")
-# [[image:1234"
-([\[]{2})([^:]+)(:)(\s)*(\d)*(\s)*(")
-# {...}
+
+# Match markdown-like bold and backslash, e.g., **\
+(\*\*)(\s)*\\
+
+# Match trailing numbers with brackets, e.g., ....]]
+(\s)?(\d+)?((,|\|)(\s)?\d+)*(\]\]{2})
+
+# Match [[...: pattern
+\[\[([^:]+):
+
+# Match numeric list endings, e.g., ...1234]]
+(\s)?(\d+)?((,|\|)(\s)?\d+)*(\]\]{2})
+
+# Match image metadata, e.g., [[image..."... or [[image:1234"
+\[\[([^:]+):(\s)*(\d+)?(\s)*(")
+
+# Match {...} objects
 \{[^}]*\}
-# <...>
+
+# Match HTML-like opening tags
 <[^/]*?>
-# </...>
+
+# Match HTML-like closing tags
 </[^/]*?>
-# mailto
-mailto:((.*?)[\w\d]+\@[\w\d]+\.)(ch|it|com|de|fr|nl|be)
+
+# Match mailto links
+mailto:(.*?[\w\d]+@[\w\d]+\.(ch|it|com|de|fr|nl|be))
