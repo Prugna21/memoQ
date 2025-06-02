@@ -50,6 +50,3 @@ This document covers common problems users might face when working with memoQ an
 ## Getting Further Help
 
 - Check the official [memoQ Help Center](https://help.memoq.com/) for detailed guides.
----
-
-*Happy troubleshooting!*
