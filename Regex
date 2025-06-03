@@ -1,18 +1,14 @@
 # Match (/page/...) URLs
-\(\/page\/([\w-]+)(\d+)?\)*|\/page\/([\w-]+)(\d+)?\)*
-
-or
-
 \/page\/[\w-]+(?:\d+)?\)?
 
 # Match (/s.../product/...) URLs
 \(\/s\d+\/product\/[^\s)]+\)
 
 # Match /product/... ending with parentheses
-\/product\/[\w-]+(\d+).*\)
+\/product\/[\w-]+(?:\d+)?[^)]*\)
 
 # Match (/producttype/...) URLs
-\/s\d+\/producttype\/[\w-]+(\d+).*\)
+\/s\d+\/producttype\/[\w-]+(?:\d+)?[^)]*\)
 
 # Match numbers enclosed in quotes, e.g., :1234"
 \s*\d+\s*"
@@ -25,6 +21,10 @@ or
 
 # Match image metadata, e.g., [[image..."... or [[image:1234"
 ([\[]{2})([^:]+)(:)(\s)*(\d)*(\s)*(")
+
+or
+
+\[\[[^:]+:\s*\d*\s*"
 
 # Match "]]" pattern with optional numbers and separators
 ((")(\s)?((\d)+)?((,(\s)?\d+)?)+)([\]]{2})
