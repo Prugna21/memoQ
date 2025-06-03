@@ -1,6 +1,3 @@
-# Match "]]" pattern with optional numbers and separators
-\(\(")(\s)?(\d+)?((,(\s)?\d+)?)+(\]\]{2})
-
 # Match (/page/...) URLs
 \(\/page\/([\w-]+)(\d+)?\)*|\/page\/([\w-]+)(\d+)?\)*
 
@@ -13,9 +10,6 @@ or
 
 # Match /product/... ending with parentheses
 \/product\/[\w-]+(\d+).*\)
-
-# Match (/s.../product/.../) version 2.0
-\(\/s\d+\/product\/[\w-]+(\d+).*\)
 
 # Match (/producttype/...) URLs
 \/s\d+\/producttype\/[\w-]+(\d+).*\)
@@ -30,16 +24,17 @@ or
 \[\[([^:]+):
 
 # Match image metadata, e.g., [[image..."... or [[image:1234"
-\[\[([^:]+):(\s)*(\d+)?(\s)*(")
+([\[]{2})([^:]+)(:)(\s)*(\d)*(\s)*(")
+
+# Match "]]" pattern with optional numbers and separators
+((")(\s)?((\d)+)?((,(\s)?\d+)?)+)([\]]{2})
 
 # Match {...} objects
 \{[^}]*\}
 
-# Match HTML-like opening tags
-<[^/]*?>
+# Match HTML-like opening and closing tags
 
-# Match HTML-like closing tags
-</[^/]*?>
+<(/?)([a-zA-Z][a-zA-Z0-9-]*)(\s[^>]*)?>
 
 # Match mailto links
-mailto:(.*?[\w\d]+@[\w\d]+\.(ch|it|com|de|fr|nl|be))
+mailto:[\w.%+-]+@[\w.-]+\.(ch|it|com|de|fr|nl|be)
