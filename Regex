@@ -4,6 +4,10 @@
 # Match (/page/...) URLs
 \(\/page\/([\w-]+)(\d+)?\)*|\/page\/([\w-]+)(\d+)?\)*
 
+or
+
+\/page\/[\w-]+(?:\d+)?\)?
+
 # Match (/s.../product/...) URLs
 \(\/s\d+\/product\/[^\s)]+\)
 
@@ -16,23 +20,14 @@
 # Match (/producttype/...) URLs
 \/s\d+\/producttype\/[\w-]+(\d+).*\)
 
-# Match (/s.../product/...) URLs
-\/s\d+\/product\/[\w-]+(\d+).*\)
-
 # Match numbers enclosed in quotes, e.g., :1234"
-(\s*)(\d*)(\s*)(")
+\s*\d+\s*"
 
 # Match markdown-like bold and backslash, e.g., **\
-(\*\*)(\s)*\\
-
-# Match trailing numbers with brackets, e.g., ....]]
-(\s)?(\d+)?((,|\|)(\s)?\d+)*(\]\]{2})
+\*\*\s*\\
 
 # Match [[...: pattern
 \[\[([^:]+):
-
-# Match numeric list endings, e.g., ...1234]]
-(\s)?(\d+)?((,|\|)(\s)?\d+)*(\]\]{2})
 
 # Match image metadata, e.g., [[image..."... or [[image:1234"
 \[\[([^:]+):(\s)*(\d+)?(\s)*(")
