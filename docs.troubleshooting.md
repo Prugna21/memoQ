@@ -1,6 +1,6 @@
 # Troubleshooting memoQ Issues
 
-This document covers common problems users might face when working with memoQ and related scripts or regex patterns in this repo.
+This file covers common problems users might face when working with memoQ and related scripts or regex patterns in this repo.
 
 ---
 
