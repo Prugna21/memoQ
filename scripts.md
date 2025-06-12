@@ -1,6 +1,6 @@
 # Scripts for memoQ Automation
 
-This folder contains automation scripts designed to streamline tasks in memoQ, such as project setup, batch imports, and quality checks.
+This file contains automation scripts designed to streamline tasks in memoQ, such as project setup, batch imports, and quality checks.
 
 ---
 
