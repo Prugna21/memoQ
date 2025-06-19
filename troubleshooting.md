@@ -8,7 +8,7 @@ This file covers common problems users might face when working with memoQ and re
 - [Slow Performance on Large Projects](#slow-performanceon-large-projects)
 - [Sync Conflicts in Team Projects](#sync-conflicts-in-team-projects)
 - [Corrupted or Missing File (desktop client)](#corrupted-or-missing-file-desktop-client)
-- [General Error | Corrupted file (desktop client)](#general-error-corrupted-file-desktop-client)
+- [General Error | Corrupted file (desktop client)](#general-error--corrupted-file-desktop-client)
 - [No Local Copy (desktop client)](#no-local-copy-desktop-client)
 
 ---
