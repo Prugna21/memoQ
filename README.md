@@ -66,7 +66,7 @@ memoQ is a powerful CAT tool designed to streamline translation and localization
 
 - memoQ uses Perl-compatible regex (PCRE); test your patterns carefully.  
 - Use regex to find formatting errors, placeholders, or specific tags.  
-- Sample regex patterns are provided in `Regex`.
+- Sample regex patterns are provided in `patterns.regex`.
 
 ---
 
