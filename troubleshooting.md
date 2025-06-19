@@ -5,7 +5,7 @@ This file covers common problems users might face when working with memoQ and re
 ## Table of contents
 
 - [Scripts Fail to Run or Throw Errors](#scripts-fail-to-run-or-throw-errors)
-- [Slow Performance on Large Projects](#slow-performanceon-large-projects)
+- [Slow Performance on Large Projects](#slow-performance-on-large-projects)
 - [Sync Conflicts in Team Projects](#sync-conflicts-in-team-projects)
 - [Corrupted or Missing File (desktop client)](#corrupted-or-missing-file-desktop-client)
 - [General Error | Corrupted file (desktop client)](#general-error--corrupted-file-desktop-client)
