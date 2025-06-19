@@ -2,6 +2,12 @@
 
 This file covers common problems users might face when working with memoQ and related scripts or regex patterns in this repo.
 
+## Table of contents
+
+- [Scripts Fail to Run or Throw Errors](#scripts-fail-to-run-or-throw-errors)
+- [Slow Performance on Large Projects](#slow-performanceon-large-projects)
+- [Sync Conflicts in Team Projects](#sync-conflicts-in-team-projects)
+
 ---
 
 ## Common Issues and Solutions
