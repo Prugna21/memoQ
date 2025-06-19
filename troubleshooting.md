@@ -7,7 +7,9 @@ This file covers common problems users might face when working with memoQ and re
 - [Scripts Fail to Run or Throw Errors](#scripts-fail-to-run-or-throw-errors)
 - [Slow Performance on Large Projects](#slow-performanceon-large-projects)
 - [Sync Conflicts in Team Projects](#sync-conflicts-in-team-projects)
-- [Corrupt or Missing File (desktop client)](#corrupt-or-missing-file-desktop-client)
+- [Corrupted or Missing File (desktop client)](#corrupted-or-missing-file-desktop-client)
+- [General Error | Corrupted file (desktop client)](#general-error-corrupted-file-desktop-client)
+)
 - [No Local Copy (desktop client)](#no-local-copy-desktop-client)
 
 ---
@@ -55,12 +57,37 @@ This file covers common problems users might face when working with memoQ and re
 
 ---
 
-### Corrupt or Missing File (desktop client)
-- **Problem:** Some memoQ-related files are either corrupt or missing from the computer.
+### Corrupted or Missing File (desktop client)
+- **Problem:** Some memoQ-related files are either corrupted or missing from the computer.
 - **Solutions:**
   - Uninstall memoQ – every version for the affected users.
   - If you have more than one, please delete the whole C:\Program Files\memoQ folder.
   - Then install the memoQ version you'd like to use: https://www.memoq.com/downloads.
+ 
+---
+
+### General Error | Corrupted file (desktop client)
+- **Solution 1:** 
+  - Close memoQ
+  - Navigate to the project's folder
+  - In case it's a local project the default path is C:\Users\%username%\Documents\my memoq projects\project's name
+  - In case it's an online project please try to check it out again and see if that resolves the issue (see [No Local Copy (desktop client)](#no-local-copy-desktop-client))
+  - Delete the TermExtract.xml file
+  - Start memoQ
+- **Solution 2:**
+  - Close memoQ.
+  - Open the C:\Users\%username%\AppData\Roaming\MemoQ folder. This is a hidden folder by default, you need to enable the "Show hidden files and folders" option in Windows.
+  - Delete the: DockLayoutConfigs.bin; Preferences-editor.xml; Preferences-layout.xml; Preferences-lookup.xml files.
+  - Start memoQ
+- **Solution 3:**
+  - Close memoQ
+  - Navigate to the project's folder as before, and delete the "Monolingualreview.xml" and "TermExtract.xml" files
+  - Start memoQ
+-**Solution 4:**
+  - Close memoQ
+  - Navigate to the "*projectname - user*" project's folder
+  - Delete the "Monolingualreview.xml", "PackageDetails.xml" and "TermExtract.xml" files
+  - Start memoQ
 
 ---
 
