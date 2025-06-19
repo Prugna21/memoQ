@@ -17,7 +17,7 @@ This file covers common problems users might face when working with memoQ and re
 - **Solutions:**
   - Ensure you are using **Perl-Compatible Regular Expressions (PCRE)** syntax, which memoQ supports.
   - Double-check all escape characters (e.g., use `\\` to match a literal backslash).
-  - Test your regex patterns with external tools like [regex101.com](https://regex101.com/) set to PCRE flavor.
+  - Test your regex patterns with external tools like [regex101.com](https://regex101.com/).
   - Avoid greedy quantifiers if you want non-greedy matches (`.*?` instead of `.*`).
 
 ---
@@ -37,9 +37,9 @@ This file covers common problems users might face when working with memoQ and re
 - **Problem:** memoQ slows down or freezes when loading large files.
 - **Solutions:**
   - Split large projects into smaller chunks.
-  - Clear memoQ cache via **Options > Advanced > Clear cache**.
   - Archive or clean unused translation memories.
   - Close other heavy applications to free system resources.
+  - Check QA settings.
 
 ---
 
