@@ -35,3 +35,28 @@ s', 'at', 'be', 'because', 'been', 'before', 'being', 'below', 'between', 'both'
 
 # Output
 ['Who', 'would', 'thought', 'computer', 'programs', 'would', 'analyzing', 'human', 'sentiments']
+
+
+# Lemmatization
+>>> from nltk.stem import WordNetLemmatizer                                                                             
+>>> text = "Who would have thought that computer programs would be analyzing human sentiments"                          
+>>> tokens = word_tokenize(text)                                                                                        
+>>> lemmatizer = WordNetLemmatizer()                                                                                    
+>>> tokens = [lemmatizer.lemmatize(word) for word in tokens]
+>>> print(tokens)
+
+# Output 
+['Who', 'would', 'have', 'thought', 'that', 'computer', 'program', 'would', 'be', 'analyzing', 'human', 'sentiment']
+
+# Stemming
+>>> from nltk.stem import PorterStemmer                                                                                 
+>>> from nltk.tokenize import word_tokenize                                                                             
+                                                                                                                    
+>>> text = "Who would have thought that computer programs would be analyzing human sentiments"                          
+>>> tokens = word_tokenize(text.lower())                                                                                
+>>> ps = PorterStemmer()
+>>> tokes = [ps.stem(word) for word in tokens]
+>>> print(tokens)
+
+# Output 
+['who', 'would', 'have', 'thought', 'that', 'computer', 'programs', 'would', 'be', 'analyzing', 'human', 'sentiments']
