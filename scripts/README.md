@@ -35,3 +35,34 @@ python excel_yellow_to_memoq.py "file_name.xlsx" --all
 The script will create a new file called `file_name_memoQ.xlsx` in the same folder, ready for manual import into memoQ.
 
 The output file will have columns: **Komponente | Source | FR | IT | EN** with only the rows that had yellow highlighting in the original file.
+
+The script is designed to be quite flexible and should work for most users and documents with similar formats, but there are a few things to consider:
+
+## **What works universally:**
+
+1. **Column name detection** - The script automatically detects columns by name patterns (DE/DEU, FR/FRA, IT/ITA, EN/ENG, etc.) regardless of column order
+2. **Yellow highlighting detection** - Works with standard Excel yellow highlighting
+3. **File path handling** - Works with any valid file path
+4. **Different Excel versions** - Handles both older (.xls) and newer (.xlsx) formats
+
+## **What might need adaptation for other users:**
+
+1. **Language combinations** - Currently set up for German→French/Italian/English. If someone needs different languages (e.g., Spanish, Portuguese), they'd need to:
+   - Modify the `target_languages` default parameter
+   - Add new language detection patterns in the column mapping
+
+2. **Column naming conventions** - If documents use completely different column names (e.g., "Source_Language" instead of "DE"), the detection patterns would need updating
+
+3. **Python environment** - Other users need to:
+   - Have Python installed
+   - Install required packages (`pandas`, `openpyxl`, `xlrd`)
+   - Know how to use command line
+
+4. **File structure expectations** - The script expects a specific structure (header row, data rows, component column optional)
+
+## **To make it more user-friendly for others:**
+
+You could create a simple configuration file or add command-line options for:
+- Custom language codes
+- Custom column name patterns
+- Different highlighting colors
