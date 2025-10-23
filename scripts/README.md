@@ -43,7 +43,7 @@ The script is designed to be quite flexible and should work for most users and d
 1. **Column name detection** - The script automatically detects columns by name patterns (DE/DEU, FR/FRA, IT/ITA, EN/ENG) regardless of column order.
 2. **Yellow highlighting detection** - Works with standard Excel yellow highlighting.
 3. **File path handling** - Works with any valid file path through command-line arguments.
-4. **Different Excel versions** - Handles both older (.xls) and newer (.xlsx) formats thanks to 'pandas.read_excel()'.
+4. **Different Excel versions** - Handles both older (.xls) and newer (.xlsx).
 
 ### **What might need adaptation for other users**
 
