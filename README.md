@@ -5,7 +5,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Prugna21/memoQ?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/Prugna21/memoQ?style=flat-square)
 
-Welcome to the memoQ Toolkit & Resources repository! This repo contains helpful scripts, regex patterns, and workflow tips to get the most out of memoQ for translators, project managers, and developers.
+Welcome to the memoQ Toolkit & Resources repository. This repo contains helpful scripts, regex patterns, and workflow tips to get the most out of memoQ for translators, project managers, and developers.
 
 ---
 
