@@ -1,4 +1,4 @@
-## **Steps to run the script:**
+## **Steps to run the script**
 
 ### **1. Save the script**
 Save the final version as `excel_yellow_to_memoq.py` in the same location as your Excel file.
