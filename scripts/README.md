@@ -26,11 +26,6 @@ python excel_yellow_to_memoq.py "file_name.xlsx"
 python excel_yellow_to_memoq.py "C:\Users\user_name\folder_name\file_name.xlsx"
 ```
 
-#### **6. If no yellow cells are found, use the --all flag**
-```cmd
-python excel_yellow_to_memoq.py "file_name.xlsx" --all
-```
-
 ### **Expected output**
 The script will create a new file called `file_name_memoQ.xlsx` in the same folder, ready for manual import into memoQ.
 
