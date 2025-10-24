@@ -72,7 +72,7 @@ def prepare_for_memoq(input_file, output_file):
         original_row = df.iloc[df_index]
         row_data = {}
         
-        # Add Komponente if not empty
+        # Add "Komponente" if not empty
         if 'Komponente' in df.columns:
             komponente = original_row['Komponente']
             if pd.notna(komponente) and str(komponente).strip():
@@ -96,9 +96,32 @@ def prepare_for_memoq(input_file, output_file):
         print("No valid segments found")
         return None
     
-    # Save results
+    # Save results to Excel
     result_df = pd.DataFrame(results)
-    result_df.to_excel(output_file, index=False)
+    
+    # Create Excel writer with openpyxl engine
+    writer = pd.ExcelWriter(output_file, engine='openpyxl')
+    result_df.to_excel(writer, index=False)
+    
+    # Configure worksheet
+    output_ws = writer.sheets['Sheet1']
+    
+    # Get column widths from input file
+    input_wb = openpyxl.load_workbook(input_file)
+    input_ws = input_wb.active
+    
+    # Enable text wrapping and set column widths
+    for i in range(len(result_df.columns)):
+        col_letter = openpyxl.utils.get_column_letter(i + 1)
+        # Copy column width
+        if col_letter in input_ws.column_dimensions:
+            output_ws.column_dimensions[col_letter].width = input_ws.column_dimensions[col_letter].width
+        # Enable text wrapping for all cells in column
+        for cell in output_ws[col_letter]:
+            cell.alignment = openpyxl.styles.Alignment(wrap_text=True, vertical='top')
+    
+    input_wb.close()
+    writer.close()
     
     return len(results)
 
@@ -118,7 +141,7 @@ if __name__ == "__main__":
     count = prepare_for_memoq(args.input_file, args.output)
     
     if count:
-        print(f"SUCCESS! Processed {count} segments")
+        print(f"✅ SUCCESS! Processed {count} segments")
         print(f"Output: {args.output}")
     else:
-        print("No segments processed")
+        print("⚠️ No segments processed")
