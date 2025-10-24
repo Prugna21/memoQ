@@ -140,7 +140,7 @@ def create_memoq_file(input_file, output_file):
     # Step 6: Save to new Excel file with formatting
     save_excel_with_formatting(results, input_file, output_file)
     
-    print(f"Success! Created {output_file} with {len(results)} rows")
+    print(f"Created {output_file} with {len(results)} rows")
     return True
 
 def save_excel_with_formatting(results, input_file, output_file):
