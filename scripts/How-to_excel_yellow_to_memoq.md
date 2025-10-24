@@ -44,6 +44,13 @@
 
 ### **Command Line Mode**
 
+#### **Command Line Steps:**
+1. **Open Command Prompt**: Press `Windows + R`, type `cmd`, press Enter
+2. **Navigate to folder**: 
+   ```cmd
+   cd "C:\Users\user_name\folder_name"
+   ```
+
 #### **Basic Usage:**
 ```bash
 python excel_yellow_to_memoq.py "file_name.xlsx"
@@ -59,12 +66,6 @@ python excel_yellow_to_memoq.py "C:\Users\user_name\folder_name\file_name.xlsx"
 python excel_yellow_to_memoq.py "input.xlsx" "custom_output.xlsx"
 ```
 
-#### **Command Line Steps:**
-1. **Open Command Prompt**: Press `Windows + R`, type `cmd`, press Enter
-2. **Navigate to folder**: 
-   ```cmd
-   cd "C:\Users\user_name\folder_name"
-   ```
 3. **Run the script**
 
 ## **Step-by-Step Breakdown**
