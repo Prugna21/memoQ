@@ -229,7 +229,7 @@ The script will create a new file called `file_name_memoQ.xlsx` with:
 ### **Error Handling**
 - File existence checking
 - Missing column detection  
-- Graceful formatting failure recovery
+- Formatting failure recovery
 
 ### **Dual Mode Operation**
 - **Interactive**: Perfect for occasional use
@@ -238,13 +238,12 @@ The script will create a new file called `file_name_memoQ.xlsx` with:
 ## **Compatibility**
 
 ### **What works universally**
-1. **Beginner-friendly**: Works by double-clicking, no technical knowledge needed
-2. **Professional features**: Command-line support for advanced users
-3. **Column name detection**: Automatically detects columns by name patterns (DE/DEU, FR/FRA, IT/ITA, EN/ENG)
-4. **Yellow highlighting detection**: Works with standard Excel yellow highlighting
-5. **File path handling**: Works with any valid file path and handles spaces in names
-6. **Excel version support**: Handles both older (.xls) and newer (.xlsx)
-7. **Formatting preservation**: Maintains proper column widths and text wrapping
+1. **Professional features**: Command-line support for advanced users
+2. **Column name detection**: Automatically detects columns by name patterns (DE/DEU, FR/FRA, IT/ITA, EN/ENG)
+3. **Yellow highlighting detection**: Works with standard Excel yellow highlighting
+4. **File path handling**: Works with any valid file path and handles spaces in names
+5. **Excel version support**: Handles both older (.xls) and newer (.xlsx)
+6. **Formatting preservation**: Maintains proper column widths and text wrapping
 
 ### **What might need adaptation for other users**
 1. **Language combinations**: Currently set up for German→French/Italian/English
