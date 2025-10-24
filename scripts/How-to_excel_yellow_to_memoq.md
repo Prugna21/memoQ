@@ -40,29 +40,9 @@
 - Project managers need to extract only the highlighted segments
 - The extracted content needs to be imported into memoQ for translation
 
-## **Two Ways to Run the Script**
+## **How to Run the Script**
 
-### **Method 1: Easy Mode (Double-Click)**
-
-#### **Steps:**
-1. **Save the script** as `excel_yellow_to_memoq.py`
-2. **Double-click** the file
-3. **Follow the prompts:**
-   ```
-   === Excel Yellow Cell Extractor ===
-   
-   Enter the name of your Excel file (with .xlsx): myfile.xlsx
-   Input file: myfile.xlsx
-   Output file: myfile_memoQ.xlsx
-   
-   Looking for yellow cells...
-   Found yellow cells in 3 rows
-   Success! Created myfile_memoQ.xlsx with 3 rows
-   ✅ Done! Your file is ready for memoQ.
-   Press Enter to close...
-   ```
-
-### **Method 2: Command Line Mode (Advanced)**
+### **Command Line Mode**
 
 #### **Basic Usage:**
 ```bash
@@ -85,7 +65,7 @@ python excel_yellow_to_memoq.py "input.xlsx" "custom_output.xlsx"
    ```cmd
    cd "C:\Users\user_name\folder_name"
    ```
-3. **Run the script** using any of the commands above
+3. **Run the script**
 
 ## **Step-by-Step Breakdown**
 
