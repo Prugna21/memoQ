@@ -3,29 +3,25 @@
 ## Table of Contents
 - [What the Script Does](#what-the-script-does)
 - [Use Case](#use-case)
+- [Two Ways to Run the Script](#two-ways-to-run-the-script)
+  - [Method 1: Easy Mode (Double-Click)](#method-1-easy-mode-double-click)
+  - [Method 2: Command Line Mode (Advanced)](#method-2-command-line-mode-advanced)
 - [Step-by-Step Breakdown](#step-by-step-breakdown)
   - [1. Import Libraries](#1-import-libraries)
-  - [2. Function: detect_yellow_cells(file_path)](#2-function-detect_yellow_cellsfile_path)
-  - [3. Function: prepare_for_memoq(input_file, output_file)](#3-function-prepare_for_memoqinput_file-output_file)
-    - [3a: Get Yellow Cells](#3a-get-yellow-cells)
+  - [2. Function: find_yellow_cells(file_name)](#2-function-find_yellow_cellsfile_name)
+  - [3. Function: create_memoq_file(input_file, output_file)](#3-function-create_memoq_fileinput_file-output_file)
+    - [3a: Find Yellow Cells](#3a-find-yellow-cells)
     - [3b: Read Excel Data](#3b-read-excel-data)
     - [3c: Find Source Column (German)](#3c-find-source-column-german)
     - [3d: Map Target Language Columns](#3d-map-target-language-columns)
     - [3e: Process Rows with Yellow Cells](#3e-process-rows-with-yellow-cells)
-    - [3f: Create Output Excel File](#3f-create-output-excel-file)
-    - [3g: Format Output File](#3g-format-output-file)
-  - [4. Main Execution Block](#4-main-execution-block)
-- [Steps to Run the Script](#steps-to-run-the-script-excel_yellow_to_memoqpy)
-  - [1. Save the script](#1-save-the-script)
-  - [2. Open Command Prompt](#2-open-command-prompt)
-  - [3. Navigate to the folder](#3-navigate-to-the-folder-where-you-saved-the-file-and-the-script)
-  - [4. Install required packages](#4-install-required-packages-if-not-already-installed)
-  - [5. Run the script](#5-run-the-script)
+    - [3f: Create Output Excel File with Formatting](#3f-create-output-excel-file-with-formatting)
+  - [4. Function: save_excel_with_formatting()](#4-function-save_excel_with_formatting)
+  - [5. Mode Detection](#5-mode-detection)
+- [Installation](#installation)
 - [Expected Output](#expected-output)
+- [Advanced Features](#advanced-features)
 - [Compatibility](#compatibility)
-  - [What works universally](#what-works-universally)
-  - [What might need adaptation](#what-might-need-adaptation-for-other-users)
-  - [To make it more user-friendly](#to-make-it-more-user-friendly-for-others)
 
 ## **What the Script Does**
 1. **Input**: Takes an Excel file with multilingual content
@@ -35,12 +31,64 @@
    - Always includes German source text
    - Only includes target language columns that are highlighted yellow
    - Preserves component information if available
+   - Copies column widths from original file
+   - Enables text wrapping for better readability
 5. **Output**: Creates a new Excel file formatted for memoQ translation tool
 
 ## **Use Case**
 - Translators have to update/revise only the cells in yellow
 - Project managers need to extract only the highlighted segments
 - The extracted content needs to be imported into memoQ for translation
+- Maintains original formatting for professional presentation
+
+## **Two Ways to Run the Script**
+
+### **Method 1: Easy Mode (Double-Click)**
+**Perfect for beginners - no command line knowledge needed!**
+
+#### **Steps:**
+1. **Save the script** as `excel_yellow_to_memoq.py`
+2. **Double-click** the file
+3. **Follow the prompts:**
+   ```
+   === Excel Yellow Cell Extractor ===
+   
+   Enter the name of your Excel file (with .xlsx): myfile.xlsx
+   Input file: myfile.xlsx
+   Output file: myfile_memoQ.xlsx
+   
+   Looking for yellow cells...
+   Found yellow cells in 3 rows
+   Success! Created myfile_memoQ.xlsx with 3 rows
+   ✅ Done! Your file is ready for memoQ.
+   Press Enter to close...
+   ```
+
+### **Method 2: Command Line Mode (Advanced)**
+**For power users and automation**
+
+#### **Basic Usage:**
+```bash
+python excel_yellow_to_memoq.py "file_name.xlsx"
+```
+
+#### **With Full Paths:**
+```bash
+python excel_yellow_to_memoq.py "C:\Users\user_name\folder_name\file_name.xlsx"
+```
+
+#### **Custom Output Name:**
+```bash
+python excel_yellow_to_memoq.py "input.xlsx" "custom_output.xlsx"
+```
+
+#### **Command Line Steps:**
+1. **Open Command Prompt**: Press `Windows + R`, type `cmd`, press Enter
+2. **Navigate to folder**: 
+   ```cmd
+   cd "C:\Users\user_name\folder_name"
+   ```
+3. **Run the script** using any of the commands above
 
 ## **Step-by-Step Breakdown**
 
@@ -48,84 +96,84 @@
 ```python
 import pandas as pd
 import openpyxl
-import argparse
+import sys
 import os
 ```
 - **pandas**: For data manipulation and Excel file handling
-- **openpyxl**: For working with Excel formatting (colors, styles)
-- **argparse**: For command-line argument parsing
-- **os**: For file path operations
+- **openpyxl**: For working with Excel formatting (colors, styles, column widths)
+- **sys**: For command-line argument handling
+- **os**: For file path operations and file existence checking
 
-### **2. Function: `detect_yellow_cells(file_path)`**
-This function identifies cells with yellow highlighting:
+### **2. Function: `find_yellow_cells(file_name)`**
+This function identifies cells with yellow highlighting using beginner-friendly loops:
 ```python
-def detect_yellow_cells(file_path):
-    workbook = openpyxl.load_workbook(file_path, data_only=False)
-    worksheet = workbook.active
+def find_yellow_cells(file_name):
+    workbook = openpyxl.load_workbook(file_name, data_only=False)
+    sheet = workbook.active
 ```
 - Opens the Excel file while preserving formatting
 - Gets the active worksheet
 
 ```python
-    yellow_cells = {}
-    for row_num, row in enumerate(worksheet.iter_rows(min_row=1), 1):
-        for col_num, cell in enumerate(row, 1):
-```
-- Creates a dictionary to store yellow cell locations
-- Iterates through each row and column (starting from row 1, column 1)
-
-```python
+    row_number = 1
+    for row in sheet.iter_rows():
+        col_number = 1
+        for cell in row:
             if cell.fill and cell.fill.start_color:
-                color_index = str(cell.fill.start_color.index)
-                if 'FFFF' in color_index.upper():
+                color = str(cell.fill.start_color.index)
+                if 'FFFF' in color.upper():  # Yellow color
 ```
-- Checks if the cell has a fill color
+- Uses simple counter variables instead of complex `enumerate()`
+- Creates a dictionary to store yellow cell locations
 - Looks for 'FFFF' in the color code (indicating yellow/bright colors)
-- Stores the cell's position and value if it's yellow
 
-### **3. Function: `prepare_for_memoq(input_file, output_file)`**
-This is the main processing function:
+### **3. Function: `create_memoq_file(input_file, output_file)`**
+This is the main processing function with step-by-step logic:
 
-#### **3a: Get Yellow Cells**
+#### **3a: Find Yellow Cells**
 ```python
-yellow_cells = detect_yellow_cells(input_file)
-if not yellow_cells:
-    print("No yellow cells found")
-    return None
+yellow_cells = find_yellow_cells(input_file)
+if len(yellow_cells) == 0:
+    print("No yellow cells found!")
+    return False
 ```
 
 #### **3b: Read Excel Data**
 ```python
-df = pd.read_excel(input_file)
+data = pd.read_excel(input_file)
 ```
 
 #### **3c: Find Source Column (German)**
 ```python
-source_col = None
-for col in df.columns:
-    if str(col).upper() in ['DE', 'DEU']:
-        source_col = col
+german_column = None
+for column_name in data.columns:
+    if column_name.upper() == 'DE' or column_name.upper() == 'DEU':
+        german_column = column_name
         break
 ```
+- Uses simple if-statements instead of complex list comprehensions
 - Looks for German source column (labeled 'DE' or 'DEU')
 
 #### **3d: Map Target Language Columns**
 ```python
-lang_mapping = {}
-lang_patterns = {
-    'FR': ['FR', 'FRA'],
-    'IT': ['IT', 'ITA'],
-    'EN': ['EN', 'ENG']
-}
+# Look for other language columns
+for column_name in data.columns:
+    column_upper = column_name.upper()
+    if column_upper == 'FR' or column_upper == 'FRA':
+        french_column = column_name
+    elif column_upper == 'IT' or column_upper == 'ITA':
+        italian_column = column_name
+    elif column_upper == 'EN' or column_upper == 'ENG':
+        english_column = column_name
 ```
 - Creates mappings for French, Italian, and English columns
-- Looks for various column name patterns (FR/FRA, IT/ITA, EN/ENG)
+- Uses beginner-friendly if-elif structure
 
 #### **3e: Process Rows with Yellow Cells**
 ```python
-for row_num, yellow_cols in yellow_cells.items():
-    if row_num <= 1:
-        continue  # Skip header row
+for row_num in yellow_cells:
+    if row_num <= 1:  # Skip header row
+        continue
 ```
 For each row with yellow cells:
 - Adds "Komponente" field if it exists and isn't empty
@@ -133,86 +181,104 @@ For each row with yellow cells:
 - Only includes target language columns that have yellow highlighting
 - Stores empty string for non-highlighted target languages
 
-#### **3f: Create Output Excel File**
+#### **3f: Create Output Excel File with Formatting**
 ```python
-result_df = pd.DataFrame(results)
-writer = pd.ExcelWriter(output_file, engine='openpyxl')
-result_df.to_excel(writer, index=False)
+save_excel_with_formatting(results, input_file, output_file)
 ```
+- Calls specialized function to handle formatting
 - Creates a new DataFrame from the processed results
-- Writes to Excel file
+- Applies professional formatting
 
-#### **3g: Format Output File**
-- Copies column widths from the original file
+### **4. Function: `save_excel_with_formatting()`**
+**New advanced feature for professional output:**
+```python
+def save_excel_with_formatting(results, input_file, output_file):
+    # Create DataFrame and Excel writer
+    final_data = pd.DataFrame(results)
+    writer = pd.ExcelWriter(output_file, engine='openpyxl')
+    
+    # Copy column widths from original file
+    original_width = input_sheet.column_dimensions[column_letter].width
+    output_sheet.column_dimensions[column_letter].width = original_width
+    
+    # Set text wrapping for all cells
+    cell.alignment = openpyxl.styles.Alignment(wrap_text=True, vertical='top')
+```
+**Features:**
+- Copies exact column widths from original file
 - Enables text wrapping for all cells
 - Sets vertical alignment to top
+- Maintains professional appearance
 
-### **4. Main Execution Block**
+### **5. Mode Detection**
+**Smart detection of how the script is being run:**
 ```python
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Extract yellow cells for memoQ')
-    parser.add_argument('input_file', help='Input Excel file')
-    parser.add_argument('--output', help='Output file name')
+if len(sys.argv) > 1:
+    # Command line mode - arguments were provided
+    run_command_line_mode()
+else:
+    # Interactive mode - no arguments provided  
+    run_interactive_mode()
 ```
-**Command-line usage:**
-```bash
-python script.py input_file.xlsx --output output_file.xlsx
-```
-**Auto-naming:** If no output file is specified, it creates one by adding "_memoQ" to the input filename.
+- Automatically detects if user provided command-line arguments
+- Switches between beginner-friendly interactive mode and advanced command-line mode
 
-## **Steps to run the script excel_yellow_to_memoq.py**
+## **Installation**
 
-### **1. Save the script**
-Save the final version as `excel_yellow_to_memoq.py` in the same location as your Excel file.
-
-### **2. Open Command Prompt**
-- Press `Windows + R`, type `cmd`, and press Enter.
-
-### **3. Navigate to the folder, where you saved the file and the script**
+### **Install Required Packages:**
 ```cmd
-cd "C:\Users\user_name\folder_name"
+pip install pandas openpyxl
 ```
 
-### **4. Install required packages** (if not already installed)
-```cmd
-pip install pandas openpyxl xlrd
-```
-
-### **5. Run the script**
-```cmd
-python excel_yellow_to_memoq.py "file_name.xlsx"
-```
-**Or with the full path**
-```cmd
-python excel_yellow_to_memoq.py "C:\Users\user_name\folder_name\file_name.xlsx"
-```
+### **Save the Script:**
+Save as `excel_yellow_to_memoq.py` in your desired location.
 
 ## **Expected Output**
-The script will create a new file called `file_name_memoQ.xlsx` in the same folder, ready for manual import into memoQ.
-The output file will have columns: **Komponente | Source | FR | IT | EN** with only the rows that had yellow highlighting in the original file.
+The script will create a new file called `file_name_memoQ.xlsx` with:
+- **Columns**: `Komponente | Source | FR | IT | EN` 
+- **Content**: Only rows that had yellow highlighting in the original file
+- **Formatting**: 
+  - Same column widths as original file
+  - Text wrapping enabled
+  - Professional alignment
+
+## **Advanced Features**
+
+### **Automatic File Naming**
+- Input: `myfile.xlsx` → Output: `myfile_memoQ.xlsx`
+- Input: `data.xls` → Output: `data_memoQ.xlsx`
+
+### **Error Handling**
+- File existence checking
+- Missing column detection  
+- Graceful formatting failure recovery
+
+### **Dual Mode Operation**
+- **Interactive**: Perfect for occasional use
+- **Command Line**: Perfect for automation and batch processing
 
 ## **Compatibility**
-The script is designed to be quite flexible and should work for most users and documents with similar formats, but there are a few things to consider.
 
 ### **What works universally**
-1. **Column name detection** - The script automatically detects columns by name patterns (DE/DEU, FR/FRA, IT/ITA, EN/ENG) regardless of column order.
-2. **Yellow highlighting detection** - Works with standard Excel yellow highlighting.
-3. **File path handling** - Works with any valid file path through command-line arguments.
-4. **Different Excel versions** - Handles both older (.xls) and newer (.xlsx).
+1. **Beginner-friendly**: Works by double-clicking, no technical knowledge needed
+2. **Professional features**: Command-line support for advanced users
+3. **Column name detection**: Automatically detects columns by name patterns (DE/DEU, FR/FRA, IT/ITA, EN/ENG)
+4. **Yellow highlighting detection**: Works with standard Excel yellow highlighting
+5. **File path handling**: Works with any valid file path and handles spaces in names
+6. **Excel version support**: Handles both older (.xls) and newer (.xlsx)
+7. **Formatting preservation**: Maintains professional appearance with proper column widths and text wrapping
 
 ### **What might need adaptation for other users**
-1. **Language combinations** - Set up for German→French/Italian/English. If someone needs different languages (e.g., Spanish, Portuguese), they'd need to:
-   - Modify the `target_languages` default parameter
-   - Add new language detection patterns in the column mapping
-2. **Column naming conventions** - If documents use completely different column names (e.g., "Source_Language" instead of "DE"), the detection patterns would need updating
-3. **Python environment** - Other users need to:
-   - Have Python installed
-   - Install required packages `pandas`, `openpyxl`)
-   - Know how to use command line
-4. **File structure expectations** - The script expects a specific structure (header row, data rows, component column optional)
+1. **Language combinations**: Currently set up for German→French/Italian/English
+2. **Column naming conventions**: Expects specific column name patterns
+3. **Python environment**: Requires Python and package installation
+4. **File structure**: Expects header row and specific data structure
 
-### **To make it more user-friendly for others**
-You could create a simple configuration file or add command-line options for:
-- Custom language codes
-- Custom column name patterns
-- Different highlighting colors
+### **Beginner-Friendly Features**
+- **No command-line knowledge required** for basic use
+- **Clear prompts and feedback** with ✅ and ❌ indicators
+- **File existence checking** with helpful error messages
+- **Simple language** in all user interactions
+- **Automatic output naming** - no need to think of filenames
+
+This version combines the **simplicity beginners need** with the **power advanced users want**, while maintaining all the professional formatting features for high-quality output!
