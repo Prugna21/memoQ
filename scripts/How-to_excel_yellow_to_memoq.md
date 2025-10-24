@@ -39,12 +39,10 @@
 - Translators have to update/revise only the cells in yellow
 - Project managers need to extract only the highlighted segments
 - The extracted content needs to be imported into memoQ for translation
-- Maintains original formatting for professional presentation
 
 ## **Two Ways to Run the Script**
 
 ### **Method 1: Easy Mode (Double-Click)**
-**Perfect for beginners - no command line knowledge needed!**
 
 #### **Steps:**
 1. **Save the script** as `excel_yellow_to_memoq.py`
@@ -65,7 +63,6 @@
    ```
 
 ### **Method 2: Command Line Mode (Advanced)**
-**For power users and automation**
 
 #### **Basic Usage:**
 ```bash
@@ -105,7 +102,7 @@ import os
 - **os**: For file path operations and file existence checking
 
 ### **2. Function: `find_yellow_cells(file_name)`**
-This function identifies cells with yellow highlighting using beginner-friendly loops:
+This function identifies cells with yellow highlighting using loops:
 ```python
 def find_yellow_cells(file_name):
     workbook = openpyxl.load_workbook(file_name, data_only=False)
@@ -123,12 +120,12 @@ def find_yellow_cells(file_name):
                 color = str(cell.fill.start_color.index)
                 if 'FFFF' in color.upper():  # Yellow color
 ```
-- Uses simple counter variables instead of complex `enumerate()`
+- Uses simple counter variables
 - Creates a dictionary to store yellow cell locations
-- Looks for 'FFFF' in the color code (indicating yellow/bright colors)
+- Looks for 'FFFF' in the color code (yellow/bright colors)
 
 ### **3. Function: `create_memoq_file(input_file, output_file)`**
-This is the main processing function with step-by-step logic:
+This is the main processing function:
 
 #### **3a: Find Yellow Cells**
 ```python
@@ -151,7 +148,7 @@ for column_name in data.columns:
         german_column = column_name
         break
 ```
-- Uses simple if-statements instead of complex list comprehensions
+- Uses simple if-statements
 - Looks for German source column (labeled 'DE' or 'DEU')
 
 #### **3d: Map Target Language Columns**
@@ -167,7 +164,7 @@ for column_name in data.columns:
         english_column = column_name
 ```
 - Creates mappings for French, Italian, and English columns
-- Uses beginner-friendly if-elif structure
+- Uses if-elif structure
 
 #### **3e: Process Rows with Yellow Cells**
 ```python
@@ -190,7 +187,7 @@ save_excel_with_formatting(results, input_file, output_file)
 - Applies professional formatting
 
 ### **4. Function: `save_excel_with_formatting()`**
-**New advanced feature for professional output:**
+
 ```python
 def save_excel_with_formatting(results, input_file, output_file):
     # Create DataFrame and Excel writer
@@ -211,7 +208,7 @@ def save_excel_with_formatting(results, input_file, output_file):
 - Maintains professional appearance
 
 ### **5. Mode Detection**
-**Smart detection of how the script is being run:**
+
 ```python
 if len(sys.argv) > 1:
     # Command line mode - arguments were provided
@@ -221,7 +218,7 @@ else:
     run_interactive_mode()
 ```
 - Automatically detects if user provided command-line arguments
-- Switches between beginner-friendly interactive mode and advanced command-line mode
+- Switches between interactive mode and advanced command-line mode
 
 ## **Installation**
 
@@ -266,19 +263,10 @@ The script will create a new file called `file_name_memoQ.xlsx` with:
 4. **Yellow highlighting detection**: Works with standard Excel yellow highlighting
 5. **File path handling**: Works with any valid file path and handles spaces in names
 6. **Excel version support**: Handles both older (.xls) and newer (.xlsx)
-7. **Formatting preservation**: Maintains professional appearance with proper column widths and text wrapping
+7. **Formatting preservation**: Maintains proper column widths and text wrapping
 
 ### **What might need adaptation for other users**
 1. **Language combinations**: Currently set up for German→French/Italian/English
 2. **Column naming conventions**: Expects specific column name patterns
 3. **Python environment**: Requires Python and package installation
 4. **File structure**: Expects header row and specific data structure
-
-### **Beginner-Friendly Features**
-- **No command-line knowledge required** for basic use
-- **Clear prompts and feedback** with ✅ and ❌ indicators
-- **File existence checking** with helpful error messages
-- **Simple language** in all user interactions
-- **Automatic output naming** - no need to think of filenames
-
-This version combines the **simplicity beginners need** with the **power advanced users want**, while maintaining all the professional formatting features for high-quality output!
