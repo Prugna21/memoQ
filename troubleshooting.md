@@ -60,7 +60,7 @@ This file covers common problems users might face when working with memoQ.
 - **Problem:** Some memoQ-related files are either corrupted or missing from the computer.
 - **Solutions:**
   - Uninstall memoQ – every version for the affected users.
-  - If you have more than one, please delete the whole C:\Program Files\memoQ folder.
+  - If you have more than one, delete the whole C:\Program Files\memoQ folder.
   - Then install the memoQ version you'd like to use: https://www.memoq.com/downloads.
  
 ---
@@ -70,7 +70,7 @@ This file covers common problems users might face when working with memoQ.
   - Close memoQ
   - Navigate to the project's folder
   - In case it's a local project the default path is C:\Users\%username%\Documents\my memoq projects\project's name
-  - In case it's an online project please try to check it out again and see if that resolves the issue (see [No Local Copy (desktop client)](#no-local-copy-desktop-client))
+  - In case it's an online project try to check it out again and see if that resolves the issue (see [No Local Copy (desktop client)](#no-local-copy-desktop-client))
   - Delete the TermExtract.xml file
   - Start memoQ
 - **Solution 2:**
@@ -93,7 +93,7 @@ This file covers common problems users might face when working with memoQ.
 ### No Local Copy (desktop client)
 - **Problem:** memoQ opens the wrong project.
 - **Solutions:**
-  - Check out a new project in memoQ. To do this, please do the following steps:
+  - Check out a new project in memoQ. To do this, do the following steps:
     1. Click on the 'Check out from Server' option in memoQ
     2. Connect to your server and choose the project you would like to use and check it out with a different name (memoQ server: [...].memoqworld.com)
     3. If the project is already checked out, a new pop-up window will appear, where you need to select the 'Check out new copy'
