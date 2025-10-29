@@ -26,7 +26,7 @@ Welcome to the memoQ Toolkit & Resources repository. This repo contains helpful 
 
 ## About
 
-memoQ is a powerful CAT tool designed to streamline translation and localization workflows. This repository offers tools and tips to extend memoQ’s capabilities and improve your productivity.
+memoQ is a powerful CAT tool designed to streamline translation and localisation workflows. This repository offers tools and tips to extend memoQ’s capabilities and improve productivity.
 
 ---
 
@@ -77,11 +77,11 @@ memoQ is a powerful CAT tool designed to streamline translation and localization
 
 ---
 
-## Performance Optimization
+## Performance Optimisation
 
 - For large projects, split files to avoid slowdowns.  
 - Clear cache and temporary files periodically.  
-- Optimize your translation memories e.g. by removing duplicates.
+- Optimise your translation memories e.g. by removing duplicates.
 
 ---
 
