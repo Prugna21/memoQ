@@ -28,10 +28,10 @@
 3. **Extraction**: Extracts only rows that contain yellow-highlighted cells
 4. **Processing**:
    - Always includes German source text
-   - Only includes target language columns that are highlighted yellow
+   - Only includes source/target language columns that are highlighted yellow
    - Preserves component information if available
    - Copies column widths from original file
-   - Enables text wrapping for better readability
+   - Enables text wrapping
 5. **Output**: Creates a new Excel file formatted for memoQ translation tool
 
 ## **Use Case**
