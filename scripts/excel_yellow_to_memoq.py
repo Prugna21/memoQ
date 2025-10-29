@@ -205,7 +205,7 @@ def get_output_filename(input_file):
         return input_file + '_memoQ.xlsx'
 
 def run_interactive_mode():
-    """Run in interactive mode (for beginners)"""
+    """Run in interactive mode"""
     print("=== Excel Yellow Cell Extractor ===")
     print()
     
@@ -236,7 +236,7 @@ def run_interactive_mode():
     input("Press Enter to close...")
 
 def run_command_line_mode():
-    """Run in command line mode (for advanced users)"""
+    """Run in command line mode"""
     if len(sys.argv) < 2:
         print("Usage: python excel_yellow_to_memoq.py <input_file> [output_file]")
         print("Example: python excel_yellow_to_memoq.py \"file.xlsx\"")
