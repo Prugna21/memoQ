@@ -77,9 +77,9 @@ import openpyxl
 import sys
 import os
 ```
-- **pandas**: For data manipulation and Excel file handling
-- **openpyxl**: For working with Excel formatting (colors, styles, column widths)
-- **sys**: For command-line argument handling
+- **pandas**: For data manipulation and Excel file
+- **openpyxl**: For Excel formatting (colors, styles, column widths)
+- **sys**: For command-line argument
 - **os**: For file path operations and file existence checking
 
 ### **2. Function: `find_yellow_cells(file_name)`**
@@ -163,7 +163,7 @@ For each row with yellow cells:
 ```python
 save_excel_with_formatting(results, input_file, output_file)
 ```
-- Calls specialized function to handle formatting
+- Calls specialised function to handle formatting
 - Creates a new DataFrame from the processed results
 - Applies professional formatting
 
@@ -183,10 +183,9 @@ def save_excel_with_formatting(results, input_file, output_file):
     cell.alignment = openpyxl.styles.Alignment(wrap_text=True, vertical='top')
 ```
 **Features:**
-- Copies exact column widths from original file
+- Copies column widths from original file
 - Enables text wrapping for all cells
 - Sets vertical alignment to top
-- Maintains professional appearance
 
 ### **5. Mode Detection**
 
@@ -199,7 +198,7 @@ else:
     run_interactive_mode()
 ```
 - Automatically detects if user provided command-line arguments
-- Switches between interactive mode and advanced command-line mode
+- Switches between interactive mode and command-line mode
 
 ## **Installation**
 
@@ -209,7 +208,7 @@ pip install pandas openpyxl
 ```
 
 ### **Save the Script:**
-Save as `excel_yellow_to_memoq.py` in your desired location.
+Save as `excel_yellow_to_memoq.py` in desired location.
 
 ## **Expected Output**
 The script will create a new file called `file_name_memoQ.xlsx` with:
@@ -218,7 +217,7 @@ The script will create a new file called `file_name_memoQ.xlsx` with:
 - **Formatting**: 
   - Same column widths as original file
   - Text wrapping enabled
-  - Professional alignment
+  - Alignment
 
 ## **Advanced Features**
 
@@ -232,8 +231,8 @@ The script will create a new file called `file_name_memoQ.xlsx` with:
 - Formatting failure recovery
 
 ### **Dual Mode Operation**
-- **Interactive**: Perfect for occasional use
-- **Command Line**: Perfect for automation and batch processing
+- **Interactive**: For occasional use
+- **Command Line**: For automation and batch processing
 
 ## **Compatibility**
 
