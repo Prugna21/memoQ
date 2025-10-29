@@ -41,6 +41,7 @@
 - The extracted content needs to be imported into memoQ for translation
 
 ## **How to Run the Script**
+Just click on the .py file. OR:
 
 ### **Command Line Mode**
 
