@@ -48,7 +48,7 @@ Just click on the .py file. OR:
 1. **Open Command Prompt**: Press `Windows + R`, type `cmd`, press Enter
 2. **Navigate to folder**: 
    ```cmd
-   cd "C:\Users\user_name\folder_name"
+   cd "C:\Users\%username%\folder_name"
    ```
 
 #### **Basic Usage:**
@@ -58,7 +58,7 @@ python excel_yellow_to_memoq.py "file_name.xlsx"
 
 #### **With Full Paths:**
 ```bash
-python excel_yellow_to_memoq.py "C:\Users\user_name\folder_name\file_name.xlsx"
+python excel_yellow_to_memoq.py "C:\Users\%username%\folder_name\file_name.xlsx"
 ```
 
 #### **Custom Output Name:**
