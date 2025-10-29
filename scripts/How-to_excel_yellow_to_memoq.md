@@ -3,9 +3,8 @@
 ## Table of Contents
 - [What the Script Does](#what-the-script-does)
 - [Use Case](#use-case)
-- [Two Ways to Run the Script](#two-ways-to-run-the-script)
-  - [Method 1: Easy Mode (Double-Click)](#method-1-easy-mode-double-click)
-  - [Method 2: Command Line Mode (Advanced)](#method-2-command-line-mode-advanced)
+- [How to Run the Script](#how-to-run-the-script)
+  - [Command Line Mode](#command-line-mode)
 - [Step-by-Step Breakdown](#step-by-step-breakdown)
   - [1. Import Libraries](#1-import-libraries)
   - [2. Function: find_yellow_cells(file_name)](#2-function-find_yellow_cellsfile_name)
