@@ -107,12 +107,6 @@ memoQ is a powerful CAT tool designed to streamline translation and localisation
 
 ---
 
-## Contributing
-
-Contributions and feedback are welcome! Please open issues or submit pull requests for improvements.
-
----
-
 ## License
 
 This repository is open for internal team use and collaboration. Please contact the repository owner for licensing details.
