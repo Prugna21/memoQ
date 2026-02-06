@@ -8,9 +8,7 @@
 import pandas as pd
 import os
 
-# ----------------------------------------------------------------------------
 # SETTINGS - Change these if needed
-# ----------------------------------------------------------------------------
 
 INPUT_FILE = "TB General.xlsx"  # Change if different file name
 OUTPUT_FOLDER = "missing_translations"  # Folder where results will be saved
@@ -18,9 +16,7 @@ OUTPUT_FOLDER = "missing_translations"  # Folder where results will be saved
 SOURCE_LANGUAGE = "German"  # The language you're translating FROM
 TARGET_LANGUAGES = ["English", "French", "Italian"]  # Languages you're translating TO
 
-# ----------------------------------------------------------------------------
 # MAIN PROGRAM - You don't need to change anything below
-# ----------------------------------------------------------------------------
 
 def main():
     """
@@ -170,9 +166,7 @@ def main():
     print("\n" + "="*70)
     input("\nPress Enter to exit...")
 
-# ----------------------------------------------------------------------------
 # RUN THE PROGRAM
-# ----------------------------------------------------------------------------
 
 if __name__ == "__main__":
     try:
