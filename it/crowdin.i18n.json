@@ -1,0 +1,10 @@
+[
+    {
+        "identifier": "Hello",
+        "source_string": "Hello",
+        "translation": "Ciao",
+        "context": "Greetings",
+        "labels": "unassigned",
+        "max_length": null
+    }
+]
