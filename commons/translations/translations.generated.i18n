@@ -1,0 +1,13 @@
+        "it-CH": "Ciao [0], come posso aiutarti?",
+        "nl-NL": "Hallo [0], hoe kan ik je helpen?"
+    },
+    "Hello, [0]!": {
+        "de-CH": "Hallo, [0]!",
+        "en-US": "Hello, [0]!",
+        "fr-CH": "Bonjour, [0]!",
+        "it-CH": "Ciao, [0]!",
+        "nl-NL": "Hallo, [0]!"
+    },
+    "Help": {
+        "de-CH": "Hilfe",
+        "en-US": "Help",
