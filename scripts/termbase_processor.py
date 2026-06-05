@@ -1,22 +1,16 @@
-# ============================================================================
 # memoQ TERMBASE - MISSING TRANSLATIONS FINDER
 # ============================================================================
 # This script finds entries in your termbase that are missing translations
 # and creates separate Excel files for each language that needs translation.
-# ============================================================================
 
 import pandas as pd
 import os
-
-# SETTINGS - Change these if needed
 
 INPUT_FILE = "TB General.xlsx"  # Change if different file name
 OUTPUT_FOLDER = "missing_translations"  # Folder where results will be saved
 
 SOURCE_LANGUAGE = "German"  # The language you're translating FROM
 TARGET_LANGUAGES = ["English", "French", "Italian"]  # Languages you're translating TO
-
-# MAIN PROGRAM - You don't need to change anything below
 
 def main():
     """
@@ -148,7 +142,7 @@ def main():
         print(f"  {language}: ✓ Created '{output_filename}' ({len(data_to_export)} entries)")
         files_created += 1
     
-    # Step 7: Done!
+    # Step 7: Done
     print("\n" + "="*70)
     print("✅ COMPLETED!")
     print("="*70)
