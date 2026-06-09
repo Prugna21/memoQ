@@ -1,8 +1,8 @@
-# Troubleshooting memoQ Issues
+## Troubleshooting memoQ Issues
 
 This file covers common problems users might face when working with memoQ.
 
-## Table of contents
+### Table of contents
 
 - [Scripts Fail to Run or Throw Errors](#scripts-fail-to-run-or-throw-errors)
 - [Slow Performance on Large Projects](#slow-performance-on-large-projects)
@@ -13,9 +13,9 @@ This file covers common problems users might face when working with memoQ.
 
 ---
 
-## Common Issues and Solutions
+### Common Issues and Solutions
 
-### Regex Patterns Not Matching Correctly
+#### Regex Patterns Not Matching Correctly
 - **Problem:** Your regex does not find the expected matches in memoQ.
 - **Solutions:**
   - Ensure you are using **Perl-Compatible Regular Expressions (PCRE)** syntax, which memoQ supports.
@@ -23,7 +23,7 @@ This file covers common problems users might face when working with memoQ.
   - Test your regex patterns with external tools like [regex101.com](https://regex101.com/).
   - Avoid greedy quantifiers if you want non-greedy matches (`.*?` instead of `.*`).
 
-### Slow Performance on Large Projects
+#### Slow Performance on Large Projects
 - **Problem:** memoQ slows down or freezes when loading large files.
 - **Solutions:**
   - Split large projects into smaller chunks.
@@ -31,7 +31,7 @@ This file covers common problems users might face when working with memoQ.
   - Close other heavy applications to free system resources.
   - Check QA settings.
 
-### Sync Conflicts in Team Projects
+#### Sync Conflicts in Team Projects
 - **Problem:** Conflicts arise when multiple translators work on the same project.
 - **Solutions:**
   - Always sync before starting work and after finishing.
@@ -39,14 +39,14 @@ This file covers common problems users might face when working with memoQ.
   - Use memoQ’s **Check-in/Check-out** features properly.
   - Contact your memoQ server admin if conflicts persist.
 
-### Corrupted or Missing File (desktop client)
+#### Corrupted or Missing File (desktop client)
 - **Problem:** Some memoQ-related files are either corrupted or missing from the computer.
 - **Solutions:**
   - Uninstall memoQ – every version for the affected users.
   - If you have more than one, delete the whole C:\Program Files\memoQ folder.
   - Then install the memoQ version you'd like to use: https://www.memoq.com/downloads.
 
-### General Error | Corrupted file (desktop client)
+#### General Error | Corrupted file (desktop client)
 - **Solution 1:** 
   - Close memoQ
   - Navigate to the project's folder
@@ -69,7 +69,7 @@ This file covers common problems users might face when working with memoQ.
   - Delete the "Monolingualreview.xml", "PackageDetails.xml" and "TermExtract.xml" files
   - Start memoQ
 
-### No Local Copy (desktop client)
+#### No Local Copy (desktop client)
 - **Problem:** memoQ opens the wrong project.
 - **Solutions:**
   - Check out a new project in memoQ. To do this, do the following steps:
@@ -80,6 +80,6 @@ This file covers common problems users might face when working with memoQ.
 
 ---
 
-## Getting Further Help
+### Getting Further Help
 
 - Check the official [memoQ Help Center](https://help.memoq.com/) for detailed guides.
