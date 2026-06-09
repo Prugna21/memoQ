@@ -37,3 +37,14 @@ or
 
 # Match mailto links
 mailto:[\w.%+-]+@[\w.-]+\.(ch|it|com|de|fr|nl|be)
+
+# For characters limitations in meta tags
+
+Source regex: <mq:rxt displaytext="\\<metaTitle\\>" val="\\<metaTitle\\>"\/>.*?<mq:rxt displaytext="\\<\/metaTitle\\>" val="\\<\/metaTitle\\>"\/>
+Replacement: <mq:rxt displaytext="\\<metaTitle\\>" val="\\<metaTitle\\>"\/>.{71,}<mq:rxt displaytext="\\<\/metaTitle\\>" val="\\<\/metaTitle\\>"\/>
+
+Source regex: <mq:rxt displaytext="\\<metaDescription\\>" val="\\<metaDescription\\>"\/>.*<mq:rxt displaytext="\\<\/metaDescription\\>" val="\\<\/metaDescription\\>"\/>
+Replacement: <mq:rxt displaytext="\\<metaDescription\\>" val="\\<metaDescription\\>"\/>.{161,}<mq:rxt displaytext="\\<\/metaDescription\\>" val="\\<\/metaDescription\\>"\/>
+
+Source regex: <mq:rxt displaytext="\\<title\\>" val="\\<title\\>"\/>.*?<mq:rxt displaytext="\\<\/title\\>" val="\\<\/title\\>"\/>
+Replacement: <mq:rxt displaytext="\\<title\\>" val="\\<title\\>"\/>.*?<mq:rxt displaytext="\\<\/title\\>" val="\\<\/title\\>"\/>
