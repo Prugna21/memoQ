@@ -1,7 +1,6 @@
 ## memoQ Toolkit & Resources
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Prugna21/memoQ?style=flat-square)
-![GitHub contributors](https://img.shields.io/github/contributors/Prugna21/memoQ?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Prugna21/memoQ?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/Prugna21/memoQ?style=flat-square)
 
@@ -36,7 +35,7 @@ memoQ is a powerful CAT tool designed to streamline translation and localisation
 
 ### Setting Up Your Environment
 
-- Configure memoQ to your needs: set preferred languages, translation memories, and term bases.  
+- Configure memoQ to your needs: set preferred languages, translation memories and term bases.  
 - For scripting and automation, ensure you have the correct environment (e.g., PowerShell, Python).  
 - Use the provided regex patterns by importing them into memoQ filters or QA rules.
 
@@ -73,12 +72,12 @@ memoQ is a powerful CAT tool designed to streamline translation and localisation
 
 - Use memoQ server or cloud for seamless team collaboration.  
 - Sync translation memories before and after work sessions to prevent conflicts.  
-- Establish clear roles for translators, reviewers, and PMs.
+- Establish clear roles for translators, reviewers and PMs.
 
 ### Troubleshooting
 
 - Common errors and fixes are documented in `troubleshooting.md`.  
-- Regex patterns not working? Double-check escape characters and test them outside memoQ first (for example [regexr](https://regexr.com/)).
+- Regex patterns not working? Double-check escape characters and test them outside memoQ first (e.g. [regexr](https://regexr.com/)).
 
 ---
 
