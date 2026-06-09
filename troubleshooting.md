@@ -23,19 +23,6 @@ This file covers common problems users might face when working with memoQ.
   - Test your regex patterns with external tools like [regex101.com](https://regex101.com/).
   - Avoid greedy quantifiers if you want non-greedy matches (`.*?` instead of `.*`).
 
----
-
-### Scripts Fail to Run or Throw Errors
-- **Problem:** Automation scripts in this repo do not execute properly.
-- **Solutions:**
-  - Confirm you have the correct runtime environment (e.g., Python 3.x, PowerShell).
-  - Check for required dependencies or modules.
-  - Run scripts from the directory where they reside to avoid path issues.
-  - Read error messages carefully and check line numbers for debugging.
-  - For memoQ API scripts, ensure your memoQ server URL and credentials are correctly configured.
-
----
-
 ### Slow Performance on Large Projects
 - **Problem:** memoQ slows down or freezes when loading large files.
 - **Solutions:**
@@ -43,8 +30,6 @@ This file covers common problems users might face when working with memoQ.
   - Archive or clean unused translation memories.
   - Close other heavy applications to free system resources.
   - Check QA settings.
-
----
 
 ### Sync Conflicts in Team Projects
 - **Problem:** Conflicts arise when multiple translators work on the same project.
@@ -54,16 +39,12 @@ This file covers common problems users might face when working with memoQ.
   - Use memoQ’s **Check-in/Check-out** features properly.
   - Contact your memoQ server admin if conflicts persist.
 
----
-
 ### Corrupted or Missing File (desktop client)
 - **Problem:** Some memoQ-related files are either corrupted or missing from the computer.
 - **Solutions:**
   - Uninstall memoQ – every version for the affected users.
   - If you have more than one, delete the whole C:\Program Files\memoQ folder.
   - Then install the memoQ version you'd like to use: https://www.memoq.com/downloads.
- 
----
 
 ### General Error | Corrupted file (desktop client)
 - **Solution 1:** 
@@ -88,15 +69,13 @@ This file covers common problems users might face when working with memoQ.
   - Delete the "Monolingualreview.xml", "PackageDetails.xml" and "TermExtract.xml" files
   - Start memoQ
 
----
-
 ### No Local Copy (desktop client)
 - **Problem:** memoQ opens the wrong project.
 - **Solutions:**
   - Check out a new project in memoQ. To do this, do the following steps:
     1. Click on the 'Check out from Server' option in memoQ
     2. Connect to your server and choose the project you would like to use and check it out with a different name (memoQ server: [...].memoqworld.com)
-    3. If the project is already checked out, a new pop-up window will appear, where you need to select the 'Check out new copy'
+    3. If the project is already checked out, a new pop-up window will appear, where you need to select the 'Check out new copy'.
        Since the new project is a “Local copy”, you can find it in “My Computer” and not on the server. It is visible only to the creator of the local copy.
 
 ---
